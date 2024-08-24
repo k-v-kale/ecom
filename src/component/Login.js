@@ -1,49 +1,39 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 
-const Login = () => {
+
+const Signup = () => {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+    const[email,setEmail] = useState('');
+    const[passward,setPasswad] = useState('');
+ 
+     const handelSubmit =(e)=>{
+        e.preventDefault ();
+        try{  
+        console.log("email is", email)
+        console.log("passward is" ,passward)
+        alert("data submit successfuly !")
+        navigate('/Home');
+        }catch(error){
+          alert("Data is not submit ")
+          console.log('error');
+        }
+     }
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    try {
-      console.log(email, password);
-      alert("Login successfully")
-      navigate("/Home");
-    } catch (error) {
-      console.log(error);
-    }
-  };
+return(
+<div className="form">
+    <form onSubmit={handelSubmit}>
+        <h2>Login</h2>
+        <label>Email</label>
+        <input type="text" placeholder="Email" value={email}  onChange={(e)=>setEmail(e.target.value)}/>
+        <label>passward</label>
+        <input type="passward" placeholder="passward" value={passward} onChange={(e)=>setPasswad(e.target.value)}/>
+        <input className="btn" type="submit" value="Login"/>
+        <p className="para">Don't have account ? <Link to="/Signin"> Signin</Link></p>
+        <p className="para">Forget passward ?</p>
+    </form>
+</div>
+);
+}
 
-  return (
-    <div className="login-container">
-      <h1> Login</h1>
-      <form onSubmit={handleSubmit}>
-        <label>Enter Email</label>
-        <input
-          type="email"
-          placeholder="Enter Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <br />
-        <label>Password</label>
-        <input
-          type="password"
-          placeholder="set password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)} required
-        />
-        <p className="para">Forgoy password?</p>
-        <input className="btn" type="submit" value="Login" ></input>
-        <p className="para">
-          Don't have an account ? <Link to="/Signup"> Signin</Link>
-        </p>
-      </form>
-    </div>
-  );
-};
-
-export default Login;
+export default Signup;

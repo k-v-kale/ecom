@@ -1,33 +1,27 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
 import "../App.css";
 
 
 const ProductData = (ele) => {
-    const{id,name,image,price} = ele;
-    return(
-    <NavLink to={"/SingleProduct"}>
-   
-    <div className="card ">
-         <div>
-         <Card style={{ width: "18rem" }}>
-            <Card.Body className="cardlayout">
-              <Card.Title>{name}</Card.Title>
-              <Card.Img className="img" src={image}/>
-              <div>
-                <p>{name}</p>
-                <p>{price}</p>
-              </div>
-              <Button variant="primary">Show data</Button>
-            </Card.Body>
-          </Card>
-         </div>
+  const { id, name, image, price } = ele;
+  return (  
+   <div className="card ">
+      <div className="cardData">
+        <div><img src={image} alt={name} /></div>
+        <div className="card-content">
+          <h3>{name}</h3>
+          <p>{price}</p>
         </div>
+        <NavLink to={`/SingleProduct/${id}`}>
+          <button className="card-button">Show Deitals</button></NavLink>
 
-    </NavLink>
-    )
+      </div>
+    </div>
+
+
+
+  )
 };
 
 export default ProductData;

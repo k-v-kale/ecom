@@ -10,16 +10,13 @@ const Add = () => {
       <div>
         <Sidebar />
       </div>
-      <div>
-        <div>
-          <h1>List of Products</h1>
-        </div>
+      <div className="heading"><h1>List of Products</h1>
          <div className="productdata"> 
           {product.map((ele) => {
             return <ProductData key={ele.id} {...ele} />;
           })}
         </div>
-      </div> 
+        </div>
     </div>
   );
 };

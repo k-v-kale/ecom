@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import { FaHome, FaList, FaShoppingBag, FaUser, FaBars } from "react-icons/fa";
+import { FaHome, FaList, FaUser, FaBars } from "react-icons/fa";
+import { IoCartOutline } from "react-icons/io5"
 import { NavLink } from "react-router-dom";
+
 
 const Sidebar = ({ childrrn }) => {
   const [isopen, setIsOpen] = useState(false);
@@ -14,14 +16,15 @@ const Sidebar = ({ childrrn }) => {
     },
     {
       path: "/Add",
-      name: "List",
+      name: "Products",
       icon: <FaList />,
     },
     {
-      path: "/Product",
-      name: "Product",
-      icon: <FaShoppingBag />,
+      path: "/Cart",
+      name: "Cart",
+      icon: <IoCartOutline/>,
     },
+
     {
       path: "/User",
       name: "User",
@@ -30,13 +33,13 @@ const Sidebar = ({ childrrn }) => {
   ];
   return (
     <div className="container">
-      <div style={{ width: isopen ? "250px" : "50px" }} className="sidebar">
+      <div style={{ width: isopen ? "160px" : "160px" }} className="sidebar">
         <div className="topsection">
-          <h1 className="logo" style={{ display: isopen ? "block" : "none" }}>
+          <h1 className="logo" style={{ display: isopen ? "block" : "block" }} onClick={toggle}>
             Logo
           </h1>
-          <div style={{ marginLeft: isopen ? "40px" : "0px" }} className="bars">
-            <FaBars onClick={toggle} />
+          <div style={{ marginLeft: isopen ? "40px" : "40px" }} className="bars">
+            <FaBars style={{ marginLeft: isopen ? "0px" : "-5px", display: isopen ? "none" : "none" }} onClick={toggle} />
           </div>
         </div>
         {menuItem.map((item, index) => (
@@ -48,7 +51,7 @@ const Sidebar = ({ childrrn }) => {
           >
             <div className="icon">{item.icon}</div>
             <div
-              style={{ display: isopen ? "block" : "none" }}
+              style={{ display: isopen ? "block" : "block" }}
               className="link-text"
             >
               {item.name}

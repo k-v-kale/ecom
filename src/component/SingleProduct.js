@@ -5,6 +5,7 @@ import { useProductContext } from "../context/ProductContext";
 import { NavLink } from "react-router-dom";
 import Myimage from "./Myimage";
 import AddToCart from "./AddToCart";
+import FormatPrice from "./FormatPrice";
 
 
 const API = "https://api.pujakaitem.com/api/products";
@@ -48,7 +49,7 @@ const SingleProduct = () => {
           <h4>Description : </h4>
           <p>{description}</p>
           <p className="descrip"></p> <br /><hr />
-          <p className="price"> price : {price}</p>
+          <p className="price"> price : {<FormatPrice price={price}/>}</p>
           <p className="price">
             Avaliable :  {stock > 0 ? "In Stock" : "Not Available"}
           </p>

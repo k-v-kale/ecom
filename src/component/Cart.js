@@ -28,6 +28,7 @@ const Cart = () => {
           <p>Name</p>
           <p>Price</p>
           <p>Quntity</p>
+          <p>SubTotal</p>
           <p>Remove</p>
         </div>
         <hr />

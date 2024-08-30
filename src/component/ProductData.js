@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "../App.css";
+import FormatPrice from "./FormatPrice";
 
 
 const ProductData = (ele) => {
@@ -11,7 +12,7 @@ const ProductData = (ele) => {
         <div><img src={image} alt={name} /></div>
         <div className="card-content">
           <h3>{name}</h3>
-          <p>{price}</p>
+          <p>{<FormatPrice price={price}/>}</p>
         </div>
         <NavLink to={`/SingleProduct/${id}`}>
           <button className="card-button">Show Deitals</button></NavLink>
